@@ -1,70 +1,58 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Payment Processing Application
 
-## Available Scripts
+## Setup and Run Instructions
 
-In the project directory, you can run:
+To get started with this application, follow these simple steps:
 
-### `npm start`
+1. Clone the repository to your local machine.
+2. Navigate to the project directory in your terminal.
+3. Install the necessary dependencies by running:
+   ```
+   npm install
+   ```
+4. Start the application by running:
+   ```
+   npm start
+   ```
+   This will launch the application in your default web browser at `http://localhost:3000`.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Application Architecture
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+This React-based application is designed to simulate a payment processing system. It is structured into several key components to ensure scalability, maintainability, and ease of use:
 
-### `npm test`
+- **PaymentPortal**: The main entry point for users to select a payment method and enter payment details.
+- **PaymentMethodSelector**: Allows users to choose from available payment methods.
+- **PaymentForm**: Dynamically renders a form based on the selected payment method.
+- **ConfirmationPage**: Displays a confirmation message with transaction details upon form submission.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The application leverages React Router for navigation, ensuring a seamless user experience without full page reloads.
 
-### `npm run build`
+### Design Choices
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Modular Design**: Components are designed to be reusable and encapsulated, facilitating future extensions.
+- **Plugin System**: Payment methods are implemented as plugins, allowing for easy addition of new methods without altering the core codebase.
+- **State Management**: Uses React's `useState` and `useContext` for state management, striking a balance between simplicity and functionality.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Adding a New Payment Method Plugin
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+To add a new payment method to the application, follow these steps:
 
-### `npm run eject`
+1. **Create the Plugin**: Under the `plugins/PaymentPlugins` directory, create a new file for your plugin, e.g., `YourPaymentMethod.js`. This file should export a React component that renders the payment form specific to your new method.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. **Integrate the Plugin**: In the `plugins/PaymentPlugins/plugins.js` file, import your new payment method component and add it to the exported `paymentPlugins` object, like so:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   ```javascript
+   import YourPaymentMethod from './YourPaymentMethod';
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+   const paymentPlugins = {
+     // other payment methods...
+     yourPaymentMethod: YourPaymentMethod,
+   };
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+   export default paymentPlugins;
+   ```
 
-## Learn More
+3. **Test Your Plugin**: Start the application and navigate to the payment portal. Your new payment method should now appear as an option in the `PaymentMethodSelector`.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+By following these steps, you can easily extend the application to support additional payment methods, ensuring the system remains flexible and user-friendly.
