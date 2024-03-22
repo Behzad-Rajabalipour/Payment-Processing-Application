@@ -1,0 +1,103 @@
+.appContainer {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  background-color: #f9f9f9; /* Light background for the overall app */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.header {
+  text-align: center;
+  color: #333;
+}
+
+.paymentMethodSelector {
+  margin: 20px 0;
+  padding: 10px;
+  background-color: #fff; /* Light background for contrast */
+  border-radius: 8px;
+}
+
+.img1 {
+  width: 100%;
+  max-width: 300px;
+  display: block;
+  margin: 20px auto;
+}
+
+.paymentForm {
+  background-color: #e8f0fe; /* Distinct light blue background for the payment form */
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Soft shadow for depth */
+}
+
+/* Add any specific styles for form elements within paymentForm */
+.paymentForm input[type="text"],
+.paymentForm input[type="email"],
+.paymentForm select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  box-sizing: border-box; /* Ensures padding does not affect overall width */
+}
+
+.paymentForm button {
+  width: 100%;
+  padding: 12px;
+  background-color: #4CAF50; /* A distinct color for the form's submit button */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.paymentForm button:hover {
+  background-color: #45a049;
+}
+
+/* ----------------------------------------------- */
+.confirmationContainer {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f9f9f9; /* Light background for the container */
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Soft shadow for depth */
+}
+
+.confirmationHeader {
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.confirmationDetail {
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #ffffff; /* White background for each detail line */
+  border-radius: 4px;
+  box-shadow: inset 0 0 5px rgba(0,0,0,0.1); /* Inner shadow for detail */
+}
+
+.confirmationButton {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background-color: #4CAF50; /* Green background for the button */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.confirmationButton:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
